@@ -105,7 +105,6 @@
       <AssemblyReference>UiPath.System.Activities.Design</AssemblyReference>
       <AssemblyReference>System.Data.DataSetExtensions</AssemblyReference>
       <AssemblyReference>System.Data.Entity</AssemblyReference>
-      <AssemblyReference>System.Runtime.WindowsRuntime</AssemblyReference>
     </scg:List>
   </TextExpression.ReferencesForImplementation>
   <Sequence sap2010:Annotation.AnnotationText="Invoke major steps of the business process, which are usually implemented by multiple subworkflows.&#xA;&#xA;If a BusinessRuleException is thrown, the transaction is skipped. &#xA;If another kind of exception occurs, the current transaction can be retried. " DisplayName="Process" sap:VirtualizedContainerService.HintSize="1567.2,9210.4" sap2010:WorkflowViewState.IdRef="Sequence_1">
@@ -228,7 +227,7 @@
                         <InArgument x:TypeArguments="x:Int32">0</InArgument>
                       </Assign.Value>
                     </Assign>
-                    <ui:ExcelWriteCell Cell="[&quot;B&quot;+(in_Counter_Global+2).ToString.Trim]" DisplayName="Write Cell" sap:VirtualizedContainerService.HintSize="333.6,88" sap2010:WorkflowViewState.IdRef="ExcelWriteCell_1" SheetName="COGİ MALZEME-ADET İŞLEM" Text="[in_Malzeme_Adet_item.ToString.Trim]" />
+                    <ui:ExcelWriteCell Cell="[&quot;B&quot;+(in_Counter_Global+2).ToString.Trim]" DisplayName="Write Cell" sap:VirtualizedContainerService.HintSize="333.6,88" sap2010:WorkflowViewState.IdRef="ExcelWriteCell_1" SheetName="COGİ MALZEME-ADET KALAN" Text="[in_Malzeme_Adet_item.ToString.Trim]" />
                   </Sequence>
                 </If.Else>
               </If>
@@ -367,7 +366,7 @@
                                           <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                                         </scg:Dictionary>
                                       </sap:WorkflowViewStateService.ViewState>
-                                      <ui:ExcelWriteCell Cell="[&quot;B&quot;+(in_Counter_Global+2).ToString.Trim]" DisplayName="Write Cell" sap:VirtualizedContainerService.HintSize="333.6,88" sap2010:WorkflowViewState.IdRef="ExcelWriteCell_2" SheetName="COGİ MALZEME-ADET İŞLEM" Text="[in_Malzeme_Adet_item.ToString.Trim]" />
+                                      <ui:ExcelWriteCell Cell="[&quot;B&quot;+(in_Counter_Global+2).ToString.Trim]" DisplayName="Write Cell" sap:VirtualizedContainerService.HintSize="333.6,88" sap2010:WorkflowViewState.IdRef="ExcelWriteCell_2" SheetName="COGİ MALZEME-ADET KALAN" Text="[in_Malzeme_Adet_item.ToString.Trim]" />
                                       <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="333.6,92.8" sap2010:WorkflowViewState.IdRef="LogMessage_3" Level="Info" Message="[in_Malzeme_item +&quot;Malzemesi için Münferit olmayan stok içerisinde uygun malzeme bulunamadı. &quot;+ in_Malzeme_Adet_item.ToString.Trim +&quot; adeti kalan olarak tabloya işlendi.&quot;]" />
                                     </Sequence>
                                   </If.Else>
@@ -455,15 +454,6 @@
                                     </Assign.Value>
                                   </Assign>
                                   <ui:AddDataRow DataRow="{x:Null}" ArrayRow="[Array_ZMM124_Islem]" DataTable="[ou_dt_ZMM124]" DisplayName="Add Data Row" sap:VirtualizedContainerService.HintSize="433.6,188" sap2010:WorkflowViewState.IdRef="AddDataRow_4" />
-                                  <Assign sap:VirtualizedContainerService.HintSize="433.6,60" sap2010:WorkflowViewState.IdRef="Assign_10">
-                                    <Assign.To>
-                                      <OutArgument x:TypeArguments="x:Int32">[in_Malzeme_Adet_item]</OutArgument>
-                                    </Assign.To>
-                                    <Assign.Value>
-                                      <InArgument x:TypeArguments="x:Int32">0</InArgument>
-                                    </Assign.Value>
-                                  </Assign>
-                                  <ui:ExcelWriteCell Cell="[&quot;B&quot;+(in_Counter_Global+2).ToString.Trim]" DisplayName="Write Cell" sap:VirtualizedContainerService.HintSize="433.6,88" sap2010:WorkflowViewState.IdRef="ExcelWriteCell_3" SheetName="COGİ MALZEME-ADET İŞLEM" Text="[in_Malzeme_Adet_item.ToString.Trim]" />
                                   <Assign sap:VirtualizedContainerService.HintSize="433.6,60" sap2010:WorkflowViewState.IdRef="Assign_11">
                                     <Assign.To>
                                       <OutArgument x:TypeArguments="x:Object">[CurrentRow(4)]</OutArgument>
@@ -472,6 +462,15 @@
                                       <InArgument x:TypeArguments="x:Int32">[cint(CurrentRow(4)) - (in_Malzeme_Adet_item)]</InArgument>
                                     </Assign.Value>
                                   </Assign>
+                                  <Assign sap:VirtualizedContainerService.HintSize="433.6,60" sap2010:WorkflowViewState.IdRef="Assign_10">
+                                    <Assign.To>
+                                      <OutArgument x:TypeArguments="x:Int32">[in_Malzeme_Adet_item]</OutArgument>
+                                    </Assign.To>
+                                    <Assign.Value>
+                                      <InArgument x:TypeArguments="x:Int32">0</InArgument>
+                                    </Assign.Value>
+                                  </Assign>
+                                  <ui:ExcelWriteCell Cell="[&quot;B&quot;+(in_Counter_Global+2).ToString.Trim]" DisplayName="Write Cell" sap:VirtualizedContainerService.HintSize="433.6,88" sap2010:WorkflowViewState.IdRef="ExcelWriteCell_3" SheetName="COGİ MALZEME-ADET KALAN" Text="[in_Malzeme_Adet_item.ToString.Trim]" />
                                   <ui:UpdateRowItem ColumnName="{x:Null}" ColumnIndex="4" DisplayName="Update Row Item" sap:VirtualizedContainerService.HintSize="433.6,192.8" sap2010:WorkflowViewState.IdRef="UpdateRowItem_1" Row="[CurrentRow]" Value="[CurrentRow(4)]" />
                                   <ui:Break sap:VirtualizedContainerService.HintSize="433.6,22.4" sap2010:WorkflowViewState.IdRef="Break_1" />
                                 </Sequence>
@@ -547,15 +546,6 @@
                                         </Assign.Value>
                                       </Assign>
                                       <ui:AddDataRow DataRow="{x:Null}" ArrayRow="[Array_ZMM124_Islem]" DataTable="[ou_dt_ZMM124]" DisplayName="Add Data Row" sap:VirtualizedContainerService.HintSize="433.6,188" sap2010:WorkflowViewState.IdRef="AddDataRow_6" />
-                                      <Assign sap:VirtualizedContainerService.HintSize="433.6,60" sap2010:WorkflowViewState.IdRef="Assign_16">
-                                        <Assign.To>
-                                          <OutArgument x:TypeArguments="x:Int32">[in_Malzeme_Adet_item]</OutArgument>
-                                        </Assign.To>
-                                        <Assign.Value>
-                                          <InArgument x:TypeArguments="x:Int32">0</InArgument>
-                                        </Assign.Value>
-                                      </Assign>
-                                      <ui:ExcelWriteCell Cell="[&quot;B&quot;+(in_Counter_Global+2).ToString.Trim]" DisplayName="Write Cell" sap:VirtualizedContainerService.HintSize="433.6,88" sap2010:WorkflowViewState.IdRef="ExcelWriteCell_4" SheetName="COGİ MALZEME-ADET İŞLEM" Text="[in_Malzeme_Adet_item.ToString.Trim]" />
                                       <Assign sap:VirtualizedContainerService.HintSize="433.6,60" sap2010:WorkflowViewState.IdRef="Assign_17">
                                         <Assign.To>
                                           <OutArgument x:TypeArguments="x:Object">[CurrentRow(4)]</OutArgument>
@@ -564,6 +554,15 @@
                                           <InArgument x:TypeArguments="x:Int32">[cint(CurrentRow(4)) - (in_Malzeme_Adet_item)]</InArgument>
                                         </Assign.Value>
                                       </Assign>
+                                      <Assign sap:VirtualizedContainerService.HintSize="433.6,60" sap2010:WorkflowViewState.IdRef="Assign_16">
+                                        <Assign.To>
+                                          <OutArgument x:TypeArguments="x:Int32">[in_Malzeme_Adet_item]</OutArgument>
+                                        </Assign.To>
+                                        <Assign.Value>
+                                          <InArgument x:TypeArguments="x:Int32">0</InArgument>
+                                        </Assign.Value>
+                                      </Assign>
+                                      <ui:ExcelWriteCell Cell="[&quot;B&quot;+(in_Counter_Global+2).ToString.Trim]" DisplayName="Write Cell" sap:VirtualizedContainerService.HintSize="433.6,88" sap2010:WorkflowViewState.IdRef="ExcelWriteCell_4" SheetName="COGİ MALZEME-ADET KALAN" Text="[in_Malzeme_Adet_item.ToString.Trim]" />
                                       <ui:UpdateRowItem ColumnName="{x:Null}" ColumnIndex="4" DisplayName="Update Row Item" sap:VirtualizedContainerService.HintSize="433.6,192.8" sap2010:WorkflowViewState.IdRef="UpdateRowItem_3" Row="[CurrentRow]" Value="[CurrentRow(4)]" />
                                       <ui:Break sap:VirtualizedContainerService.HintSize="433.6,22.4" sap2010:WorkflowViewState.IdRef="Break_2" />
                                     </Sequence>
@@ -601,7 +600,7 @@
                                         </Assign.Value>
                                       </Assign>
                                       <ui:UpdateRowItem ColumnName="{x:Null}" ColumnIndex="4" DisplayName="Update Row Item" sap:VirtualizedContainerService.HintSize="433.6,192.8" sap2010:WorkflowViewState.IdRef="UpdateRowItem_4" Row="[CurrentRow]" Value="[CurrentRow(4)]" />
-                                      <ui:ExcelWriteCell Cell="[&quot;B&quot;+(in_Counter_Global+2).ToString.Trim]" DisplayName="Write Cell" sap:VirtualizedContainerService.HintSize="433.6,88" sap2010:WorkflowViewState.IdRef="ExcelWriteCell_5" SheetName="COGİ MALZEME-ADET İŞLEM" Text="[in_Malzeme_Adet_item.ToString.Trim]" />
+                                      <ui:ExcelWriteCell Cell="[&quot;B&quot;+(in_Counter_Global+2).ToString.Trim]" DisplayName="Write Cell" sap:VirtualizedContainerService.HintSize="433.6,88" sap2010:WorkflowViewState.IdRef="ExcelWriteCell_5" SheetName="COGİ MALZEME-ADET KALAN" Text="[in_Malzeme_Adet_item.ToString.Trim]" />
                                     </Sequence>
                                   </If.Else>
                                 </If>
