@@ -105,6 +105,7 @@
       <AssemblyReference>UiPath.System.Activities.Design</AssemblyReference>
       <AssemblyReference>System.Data.DataSetExtensions</AssemblyReference>
       <AssemblyReference>System.Data.Entity</AssemblyReference>
+      <AssemblyReference>System.Runtime.WindowsRuntime</AssemblyReference>
     </scg:List>
   </TextExpression.ReferencesForImplementation>
   <Sequence sap2010:Annotation.AnnotationText="Invoke major steps of the business process, which are usually implemented by multiple subworkflows.&#xA;&#xA;If a BusinessRuleException is thrown, the transaction is skipped. &#xA;If another kind of exception occurs, the current transaction can be retried. " DisplayName="Process" sap:VirtualizedContainerService.HintSize="1567.2,9210.4" sap2010:WorkflowViewState.IdRef="Sequence_1">
@@ -133,7 +134,7 @@
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
     <ui:LogMessage DisplayName="Log Message Process Start" sap:VirtualizedContainerService.HintSize="1525.6,92.8" sap2010:WorkflowViewState.IdRef="LogMessage_2" Level="Info" Message="[&quot;Started Process&quot;]" />
-    <ui:ExcelApplicationScope Password="{x:Null}" DisplayName="Excel Application Scope" sap:VirtualizedContainerService.HintSize="1525.6,1552" sap2010:WorkflowViewState.IdRef="ExcelApplicationScope_2" InstanceCachePeriod="3000" Visible="False" WorkbookPath="[in_config(&quot;File_Path_Cogi&quot;).ToString.Trim+&quot;Cogi_Calisma_Sonu_Raporu_&quot; +Date.Now.ToString(&quot;dd_MM_yyyy&quot;)+&quot;_Depo_Yeri_&quot;+in_config(&quot;DepoYeri_1&quot;).ToString.Trim+&quot;.xlsx&quot;]">
+    <ui:ExcelApplicationScope Password="{x:Null}" DisplayName="Excel Application Scope" sap:VirtualizedContainerService.HintSize="1525.6,1552" sap2010:WorkflowViewState.IdRef="ExcelApplicationScope_2" InstanceCachePeriod="3000" Visible="False" WorkbookPath="[in_config(&quot;File_Path_Cogi&quot;).ToString.Trim+&quot;Cogi_Calisma_Sonu_Raporu_&quot; +Date.Now.ToString(&quot;dd_MM_yyyy&quot;)+&quot;_Depo_Yeri_&quot;+in_config(&quot;DepoYeri_1&quot;).ToString.Trim+&quot;_Sirlama&quot;+&quot;.xlsx&quot;]">
       <ui:ExcelApplicationScope.Body>
         <ActivityAction x:TypeArguments="ui:WorkbookApplication">
           <ActivityAction.Argument>
@@ -250,7 +251,7 @@
                 <x:Boolean x:Key="IsExpanded">True</x:Boolean>
               </scg:Dictionary>
             </sap:WorkflowViewStateService.ViewState>
-            <ui:ExcelApplicationScope Password="{x:Null}" DisplayName="Excel Application Scope" sap:VirtualizedContainerService.HintSize="1407.2,6846.4" sap2010:WorkflowViewState.IdRef="ExcelApplicationScope_1" InstanceCachePeriod="3000" Visible="False" WorkbookPath="[in_config(&quot;File_Path_Cogi&quot;).ToString.Trim+&quot;Cogi_Calisma_Sonu_Raporu_&quot; +Date.Now.ToString(&quot;dd_MM_yyyy&quot;)+&quot;_Depo_Yeri_&quot;+in_config(&quot;DepoYeri_1&quot;).ToString.Trim+&quot;.xlsx&quot;]">
+            <ui:ExcelApplicationScope Password="{x:Null}" DisplayName="Excel Application Scope" sap:VirtualizedContainerService.HintSize="1407.2,6846.4" sap2010:WorkflowViewState.IdRef="ExcelApplicationScope_1" InstanceCachePeriod="3000" Visible="False" WorkbookPath="[in_config(&quot;File_Path_Cogi&quot;).ToString.Trim+&quot;Cogi_Calisma_Sonu_Raporu_&quot; +Date.Now.ToString(&quot;dd_MM_yyyy&quot;)+&quot;_Depo_Yeri_&quot;+in_config(&quot;DepoYeri_1&quot;).ToString.Trim+&quot;_Sirlama&quot;+&quot;.xlsx&quot;]">
               <ui:ExcelApplicationScope.Body>
                 <ActivityAction x:TypeArguments="ui:WorkbookApplication">
                   <ActivityAction.Argument>
